@@ -26,6 +26,7 @@ import PropTypes from 'prop-types';
          .then(res => res.json())
          .then(data => {
              if(this.refs.myRef){
+                 console.log(data);
 
              this.setState({repos: data});
              }

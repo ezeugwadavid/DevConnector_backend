@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import PostItem from '../posts/PostItem';
 import { getPost } from '../../actions/postActions';
 import Spinner from '../common/Spinner';
+import CommentForm from './CommentForm';
+import CommentFeed from './CommentFeed';
 
  class Post extends Component {
      componentDidMount() {
@@ -12,7 +14,7 @@ import Spinner from '../common/Spinner';
      }
 
     render() {
-        const { post, loading } = this.props;
+        const { post, loading } = this.props.post;
         let postContent;
         if(post === null || loading || Object.keys(post).length === 0 ) {
            postContent = <Spinner /> 
@@ -21,7 +23,10 @@ import Spinner from '../common/Spinner';
             postContent = (
               <div>
                   <PostItem post={post} showActions={false} />
-              </div>  
+                  <CommentForm postId={post._id}/>
+                  
+                  <CommentFeed postId={post._id} comments={post.comments} />
+              </div> 
 
             );
 

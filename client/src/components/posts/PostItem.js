@@ -33,7 +33,7 @@ import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
 
     render() {
-        const { post, auth, showActions } = this.props.post;
+        const { post, auth, showActions } = this.props;
         return (
             <div className="card card-body mb-3">
             <div className="row">
