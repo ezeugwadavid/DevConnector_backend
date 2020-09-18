@@ -26,6 +26,7 @@ import { addPost } from '../../actions/postActions';
          }
      }
 
+     
      onSubmit(e) {
          e.preventDefault();
 
@@ -38,8 +39,14 @@ import { addPost } from '../../actions/postActions';
          };
 
          this.props.addPost(newPost);
+
+         const  cancelCourse = () => { 
+            document.getElementById("create-course-form").reset();
+          }
+
         
-         this.setState({text: ''});
+        // this.setState({ text: ""});
+        cancelCourse();
 
          
          
@@ -66,7 +73,7 @@ import { addPost } from '../../actions/postActions';
                 Say Somthing...
               </div>
               <div className="card-body">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} id="create-course-form">
                   <div className="form-group">
                    <TextAreaFieldGroup
                     placeholder="Create a post"
