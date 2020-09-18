@@ -37,3 +37,7 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+.footers {
+  margin-top: 90% !important;
+}
